@@ -41,9 +41,28 @@
         {!! Form::text('name', null, [ 'class'=>'form-control']) !!}
     </div>
     <div class="form-group">
+        {!! Form::label('role_id','Role:') !!}
+        {!! Form::select('role_id',[''=>'Kies een rol'] + $roles, null, [ 'class'=>'form-control select2minimal']) !!}
+    </div>
+    <div class="form-group">
         {!! Form::submit('Gebruiker aanmaken',['class'=>'btn btn-primary']) !!}
     </div>
 
 {!! Form::close() !!}
 
+
+    <!-- TODO: Place in seperate template -->
+
+    @if(count($errors) > 0)
+
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+        </ul>
+    </div>
+
+    @endif
 @endsection
+
