@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Users</h1>
+    <h1><a href="{{route('users.index')}}">Users</a></h1>
 
 <table class="table table-hover">
     <thead>
@@ -32,14 +32,20 @@
     </body>
 </table>
 <br>
-<h1>Create user</h1>
+  <h1><a href="{{route('users.index')}}">Create user</a></h1>
 
-{!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store']) !!}
+    {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
 
     <div class="form-group">
         {!! Form::label('name','Naam:') !!}
         {!! Form::text('name', null, [ 'class'=>'form-control']) !!}
     </div>
+
+    <div class="form-group">
+        {!! Form::label('file','Bestand:') !!}
+        {!! Form::file('file', null, [ 'class'=>'form-control']) !!}
+    </div>
+
     <div class="form-group">
         {!! Form::label('role_id','Role:') !!}
         {!! Form::select('role_id',[''=>'Kies een rol'] + $roles, null, [ 'class'=>'form-control select2minimal']) !!}
