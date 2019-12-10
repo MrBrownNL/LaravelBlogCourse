@@ -43,3 +43,4 @@ Route::get('/admin/user/roles', [ 'middleware'=>['web'], function() {
 }]);
 
 Route::get('/admin', 'AdminController@index');
+Route::resource('/admin/users', 'AdminUsersController');
