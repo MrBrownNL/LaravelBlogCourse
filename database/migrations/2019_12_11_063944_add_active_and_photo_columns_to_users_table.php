@@ -17,6 +17,7 @@ class AddActiveAndPhotoColumnsToUsersTable extends Migration
             //
 
             $table->addColumn('tinyInteger','is_active')->default(1);
+            // $table->tinyInteger('is_active')->default(1); // is hetzelfde als hierboven
             $table->addColumn('integer','photo_id')->nullable();
 
         });

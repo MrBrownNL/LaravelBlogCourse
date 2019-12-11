@@ -27,10 +27,17 @@ class UsersRequest extends FormRequest
             //
 
             'name'=>'required',
-            'email'=>'required',
+            'email'=>['required','email'],
             'password'=>'required',
-            'role'=>'required',
+            'role_id'=>'required',
 
+        ];
+    }
+
+    public function messages() {
+        return [
+            'name.required'=>'Vul uw naam in',
+            'email.required'=>'Vul een geldig e-mailadres in',
         ];
     }
 }
