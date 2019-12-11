@@ -8,10 +8,12 @@ class Photo extends Model
 {
     //
 
+    protected $uploads = '/images/';
+
     protected $fillable = ['file'];
 
 
-    public function role() {
+   /* public function role() {
 
         return $this->belongsTo('App\Role');
 
@@ -21,6 +23,10 @@ class Photo extends Model
 
         return $this->belongsTo('App\Photo');
 
+    }
+*/
+    public function getFileAttribute($photo) {
+        return $this->uploads . $photo;
     }
 
 }
