@@ -18,16 +18,20 @@ class IsAdmin
     {
 
         // First get Auth object of current user
-        $user = Auth::user();
+        if ($user = Auth::user()) {
 
-        // Check role of user and redirect
-        if (!$user->isAdmin()) {
+            if (!$user->isAdmin()) {
 
-            return redirect('/');
+                return redirect('/home');
 
+            }
+
+            // Passing al checks, allowed to comntinue
+            return $next($request);
+
+        } else {
+            return redirect('/home');
         }
 
-        // Passing al checks, allowed to comntinue
-       return $next($request);
-    }
+     }
 }

@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class AdminUsersController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware('IsAdmin');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -31,6 +37,10 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
+
+        $roles = Role::pluck('name','id')->toArray();
+        return view('admin.users.create', compact(['roles']));
+
     }
 
     /**
