@@ -18,8 +18,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('file','Foto:') !!}
-        {!! Form::file('file', null, [ 'class'=>'form-control']) !!}
+        {!! Form::label('photo_id','Foto:') !!}
+        {!! Form::file('photo_id', null, [ 'class'=>'form-control']) !!}
     </div>
 
     <div class="form-group">
@@ -28,7 +28,7 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('role_id','Status:') !!}
+        {!! Form::label('is_active','Status:') !!}
         {!! Form::select('is_active',[1=>'Actief',0=>'Niet actief'], null, [ 'class'=>'form-control select2minimal']) !!}
     </div>
 
