@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h4><a href="{{route('admin.users.index')}}">Users</a></h4>
+    <h4><a href="{{route('admin.users.index')}}">Gebruikers</a></h4>
 
     <h1>Create user</h1>
 
@@ -23,8 +23,8 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('role_id','Role:') !!}
-        {!! Form::select('role_id',[''=>'Kies een rol'] + $roles, null, [ 'class'=>'form-control select2minimal']) !!}
+        {!! Form::label('role_id','Rol:') !!}
+        {!! Form::select('role_id',[''=>'Kies een rol'] + $roles, null, ['class'=>'form-control select2minimal']) !!}
     </div>
 
     <div class="form-group">

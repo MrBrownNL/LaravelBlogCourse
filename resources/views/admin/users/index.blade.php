@@ -1,16 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1><a href="{{route('admin.users.index')}}">Users</a></h1>
+    <h1><a href="{{route('admin.users.index')}}">Gebruikers</a></h1>
 
 <table class="table table-hover">
     <thead>
     <tr>
         <th>id</th>
-        <th>name</th>
-        <th>email</th>
-        <th>role</th>
-        <th>created</th>
+        <th>Naam</th>
+        <th>E-mail</th>
+        <th>Rol</th>
+        <th class="text-center">Actief</th>
+        <th>Aangemaakt</th>
     </tr>
     </thead>
     <body>
@@ -22,6 +23,12 @@
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->role->name}}</td>
+                <td class="text-center"><i class="fa @if ($user->is_active == 1)
+                        fa-check text-success
+                    @else
+                        fa-times text-danger
+                    @endif
+                        "></i></td>
                 <td>{{$user->created_at->diffForHumans()}}</td>
             </tr>
 

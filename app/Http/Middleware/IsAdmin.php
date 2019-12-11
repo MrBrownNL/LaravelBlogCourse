@@ -26,7 +26,7 @@ class IsAdmin
 
             }
 
-            // Passing al checks, allowed to comntinue
+            // Passing al checks, allowed to continue
             return $next($request);
 
         } else {
