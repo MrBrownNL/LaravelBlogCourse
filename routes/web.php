@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
 
+    return view('welcome');
+
     $data = [
         'title'=>'Hi student, you like the course?',
         'content'=>'Test content\r\n\r\nBest regards,',
@@ -28,7 +30,6 @@ Route::get('/', function () {
 
     return "message not send! (commented out)";
 
-//    return view('welcome');
 
 });
 
@@ -43,4 +44,9 @@ Route::get('/admin/user/roles', [ 'middleware'=>['web'], function() {
 }]);
 
 Route::get('/admin', 'AdminController@index');
-Route::resource('/admin/users', 'AdminUsersController',['as'=>'admin']);
+
+Route::group(['middelware'=>'IsAdmin'], function() {
+
+    Route::resource('/admin/users', 'AdminUsersController',['as'=>'admin']);
+
+});

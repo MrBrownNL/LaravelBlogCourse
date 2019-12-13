@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if(\Illuminate\Contracts\Session\Session::has('deleted_user'))
+
+        <span class="label label-danger">{{ session('deleted_user') }}</span>
+
+        @endif
+
     <h1><a href="{{route('admin.users.index')}}">Gebruikers</a></h1>
 
 <table class="table table-hover">
@@ -13,6 +20,7 @@
         <th>Rol</th>
         <th class="text-center">Actief</th>
         <th>Aangemaakt</th>
+        <th>Gewijzigd</th>
     </tr>
     </thead>
     <body>
@@ -32,6 +40,7 @@
                     @endif
                         "></i></td>
                 <td>{{$user->created_at->diffForHumans()}}</td>
+                <td>{{$user->updated_at->diffForHumans()}}</td>
             </tr>
 
         @endforeach
